@@ -1,14 +1,16 @@
 import geopandas as gpd
 import matplotlib.pyplot as plt
 from shapely.geometry import Polygon, LineString, Point
+import matplotlib
 
+# Utiliser un backend compatible
+matplotlib.use('Agg')
 
 # Chemin vers le fichier .shp
 fichier_shp = "/home/onyxia/work/projet_python_2024_ENSAE/NI_F25v_mikilvaegFuglasvaedi_SHP"
 
 # Lecture du fichier shapefile
 gdf = gpd.read_file(fichier_shp)
-
 
 # Affichage des premières lignes du GeoDataFrame
 print(gdf.head())
@@ -34,14 +36,18 @@ def convert_to_2d(geom):
 gdf["geometry"] = gdf["geometry"].apply(convert_to_2d)
 print("Conversion en 2D terminée.")
 
-# Vérification de la colonne géométrie
-print("Colonne géométrie :", gdf.geometry.head())
+# Vérification des géométries invalides
+gdf = gdf[gdf.is_valid]
+print("Nombre de géométries valides :", len(gdf))
 
-# Affichage de la carte avec Matplotlib
+# Affichage de la carte et sauvegarde dans un fichier
 fig, ax = plt.subplots(1, 1, figsize=(12, 10))
 gdf.plot(ax=ax, edgecolor='black', cmap='Set2')
 ax.set_title("Carte du Shapefile")
 ax.set_xlabel("Longitude")
 ax.set_ylabel("Latitude")
 plt.grid()
-plt.show()
+
+# Sauvegarder la carte dans un fichier PNG
+plt.savefig("/home/onyxia/work/projet_python_2024_ENSAE/carte_shapefile.png")
+print("Carte sauvegardée sous 'carte_shapefile.png'")
