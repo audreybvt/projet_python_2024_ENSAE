@@ -17,6 +17,6 @@ fs.touch(f"{MY_BUCKET}/diffusion")
 
 ImportantBirdSanctuaries = "/home/onyxia/work/projet_python_2024_ENSAE-1/NI_F25v_ImportantBirdSanctuaries_SHP"
 # Import of Bird Sanctuaries in the folder diffusion
-fs.put("ImportantBirdSanctuaries", f"{MY_BUCKET}/diffusion/ImportantBirdSanctuaries", recursive=True)
+fs.put(ImportantBirdSanctuaries, f"{MY_BUCKET}/diffusion/ImportantBirdSanctuaries", recursive=True)
 
 # Use of Eve Samani bucket
