@@ -4,3 +4,5 @@ fs = s3fs.S3FileSystem(client_kwargs={"endpoint_url": "https://minio.lab.sspclou
 
 MY_BUCKET = "abovet_sspcloud"
 fs.ls(MY_BUCKET)
+
+print(fs.ls(''))
