@@ -53,7 +53,7 @@ import s3fs
 
 fs = s3fs.S3FileSystem(client_kwargs={"endpoint_url": "https://minio.lab.sspcloud.fr"})
 
-MY_BUCKET = "abovet"
+MY_BUCKET = "esam"
 fs.ls(MY_BUCKET)
 
 FILE_PATH_OUT_S3 = f"{MY_BUCKET}/diffusion/zones_ornithologiques"
