@@ -58,3 +58,5 @@ fs.ls(MY_BUCKET)
 
 FILE_PATH_OUT_S3 = f"{MY_BUCKET}/diffusion/zones_ornithologiques"
 fs.put("zones_ornithologiques/", f"{MY_BUCKET}/diffusion/zones_ornithologiques/", recursive=True)
+
+
