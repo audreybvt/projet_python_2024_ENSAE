@@ -7,7 +7,7 @@ import matplotlib
 matplotlib.use('Agg')
 
 # Chemin vers le fichier .shp
-fichier_shp = "/home/onyxia/work/projet_python_2024_ENSAE/NI_F25v_mikilvaegFuglasvaedi_SHP"
+fichier_shp = "/home/onyxia/work/projet_python_2024_ENSAE/zones_ornithologiques"
 
 # Lecture du fichier shapefile
 gdf = gpd.read_file(fichier_shp)
@@ -49,5 +49,5 @@ ax.set_ylabel("Latitude")
 plt.grid()
 
 # Sauvegarder la carte dans un fichier PNG
-plt.savefig("/home/onyxia/work/projet_python_2024_ENSAE/carte_shapefile.png")
-print("Carte sauvegardée sous 'carte_shapefile.png'")
+plt.savefig("/home/onyxia/work/projet_python_2024_ENSAE/carte_shapefile2.png")
+print("Carte sauvegardée sous 'carte_shapefile2.png'")

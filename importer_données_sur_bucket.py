@@ -20,7 +20,6 @@ with fs.open(FILE_PATH_OUT_S3, "w") as file_out:
     glace_arctique.to_csv(file_out)
 
 #lire le fichier en local
-# Import
 with fs.open(FILE_PATH_OUT_S3, "r") as file_in:
     df_dpe = pd.read_csv(file_in)
 
