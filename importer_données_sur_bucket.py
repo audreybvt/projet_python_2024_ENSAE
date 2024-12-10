@@ -36,4 +36,15 @@ fs.get(f"{MY_BUCKET}/diffusion/zones_ornithologiques/", "zones_ornithologiques2/
 df_zones = gpd.read_file("zones_ornithologiques2/")
 print(df_zones.head(2))
 
+
+BUCKET_EVE = "esam"
+FILE_PATH_OUT_S3_EVE = f"{BUCKET_EVE}/diffusion/eBird/ebd_atlpuf_relSep-2024.txt"
+#lire le fichier en local
+with fs.open(FILE_PATH_OUT_S3_EVE, "r") as file_in:
+    df_eBird = pd.read_csv(file_in, sep="\t")
+
+print(df_eBird.head(2))
+
+
+
 "commande pour résoudre le pbm dans terminal pip install pyopenssl --upgrade"
