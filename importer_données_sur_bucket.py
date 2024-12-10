@@ -1,6 +1,7 @@
 import s3fs
 
 import pandas as pd
+import geopandas as gpd
 
 #read file
 glace_arctique = pd.read_csv("glace_arctique.csv")
@@ -29,5 +30,11 @@ print(df_dpe.head(2))
 #importer des dossier
 
 fs.put("zones_ornithologiques/", f"{MY_BUCKET}/diffusion/zones_ornithologiques/", recursive=True)
+
+# Récupération des fichiers depuis MinIO vers la machine locale
+fs.get(f"{MY_BUCKET}/diffusion/zones_ornithologiques/", "zones_ornithologiques2/", recursive=True)
+
+df_zones = gpd.read_file("zones_ornithologiques2/")
+print(df_zones.head(2))
 
 "commande pour résoudre le pbm dans terminal pip install pyopenssl --upgrade"
