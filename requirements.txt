@@ -3,4 +3,5 @@ matplotlib
 shapely.geometry 
 matplotlib
 contextily 
+copernicusmarine
 
