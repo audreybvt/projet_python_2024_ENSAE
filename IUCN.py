@@ -1,23 +1,31 @@
 import pandas as pd
-import fiona
+import s3fs 
+import geopandas as gpd
+import matplotlib.pyplot as plt
+
+fs = s3fs.S3FileSystem(client_kwargs={"endpoint_url": "https://minio.lab.sspcloud.fr"})
+
+MY_BUCKET = "esam"
+print(fs.ls(MY_BUCKET))
+
+fs.put("/home/onyxia/work/projet_python_2024_ENSAE/IUCN_redlist", f"{MY_BUCKET}/diffusion/", recursive=True)
 
 
-# Lire les attributs (données tabulaires) à partir du fichier Shapefile
-with fiona.open("/home/onyxia/projet_python_2024_ENSAE/redlist_species_data_321db943-1ccf-41f1-89a0-39c861e3e0ae/data_0.shp") as shapefile:
-    # Extraire les données attributaires dans une liste de dictionnaires
-    attributes = [feature["properties"] for feature in shapefile]
+# Récupération des fichiers depuis MinIO vers la machine locale
+fs.get(f"{MY_BUCKET}/diffusion/IUCN_redlist/", "IUCN_redlist/", recursive=True)
 
-# Convertir les données attributaires en un DataFrame pandas
-df = pd.DataFrame(attributes)
 
-# Sélectionner les colonnes pertinentes (données temporelles et numériques)
-columns_of_interest = ["YRCOMPILED", "ASSESSMENT", "SCI_NAME", "LEGEND"]  # Ajustez selon vos besoins
-df_selected = df[columns_of_interest]
 
-# Chemin pour enregistrer le fichier CSV
-csv_output_path = "/home/onyxia/projet_python_2024_ENSAE/IUCN_data.csv"
+# Charger le fichier shapefile
+shp_file_path = "/mnt/data/data_0.shp"
+gdf = gpd.read_file(shp_file_path)
 
-# Sauvegarder les données sélectionnées dans un fichier CSV
-df_selected.to_csv(csv_output_path, index=False)
+# Afficher les premières lignes
+print(gdf.head())
 
-print(f"Fichier CSV écrit avec succès à : {csv_output_path}")
+# Afficher les colonnes disponibles
+print("Colonnes disponibles :", gdf.columns)
+
+# Résumé des données géométriques
+print(gdf.geometry.head())
+
