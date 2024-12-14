@@ -173,14 +173,14 @@ with fs.open(minio_path_2, "rb") as minio_file:
         local_nc_file.write(minio_file.read())
 
 # Charger le fichier localement avec xarray
-dataset = xr.open_dataset(local_file_2, engine="netcdf4")
-print(dataset)
+dataset_2 = xr.open_dataset(local_file_2, engine="netcdf4")
+print(dataset_2)
 
-df_cds_2 = dataset.to_dataframe().reset_index()
+df_cds_2 = dataset_2.to_dataframe().reset_index()
 print(df_cds_2.head())
 
-df_cds_clean = df_cds_2.dropna(subset=["tos"])
-print(df_cds_clean.head())
+df_cds_clean_2 = df_cds_2.dropna(subset=["tos"])
+print(df_cds_clean_2.head())
 
-df_cds_clean.to_csv("projet_python_2024_ENSAE/sst_data_cds_SSP5.csv", index=False)
+df_cds_clean_2.to_csv("projet_python_2024_ENSAE/sst_data_cds_SSP5.csv", index=False)
 
