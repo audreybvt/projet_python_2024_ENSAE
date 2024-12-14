@@ -4,12 +4,16 @@ import s3fs
 import zipfile
 import xarray as xr
 
+
+
+#Code Eve API Climate Data Store Copernicus
 with open('/home/onyxia/.cdsapirc', 'w') as file:
     file.write("""
     url: https://cds.climate.copernicus.eu/api
     key: 4a3c4e19-b15f-41a9-8374-adf4f8ee3fb3
     """)
 
+#API CDS Copernicus
 client = cdsapi.Client()
 dataset = "projections-cmip6"
 request = {
@@ -29,17 +33,11 @@ request = {
 }
 client.retrieve(dataset, request).download()
 
-
-# Chemin local du fichier ZIP téléchargé
+#Dezippage du fichier téléchargé localement
 local_zip_path = "/home/onyxia/work/cds_output.zip"
-
-# Dossier temporaire pour extraire les fichiers
-temp_dir = "./extracted_files"
-
-# Ouvrez le fichier ZIP et extrayez son contenu
-with zipfile.ZipFile(local_zip_path, 'r') as zip_ref:
+temp_dir = "./extracted_files" # Dossier temporaire pour extraire les fichiers
+with zipfile.ZipFile(local_zip_path, 'r') as zip_ref: # Ouvrez le fichier ZIP et extrayez son contenu
     zip_ref.extractall(temp_dir)
-
 print(f"Fichiers extraits dans : {temp_dir}")
 
 # Charger la liste des fichiers extraits dans un DataFrame
@@ -48,27 +46,20 @@ print("Fichiers extraits :")
 print(extracted_files_cds)
 
 
-
-
-
-# Chemin du fichier NetCDF
+#Vérif du fichier
 file_path = "/home/onyxia/work/extracted_files/tos_Omon_MPI-ESM1-2-HR_historical_r1i1p1f1_gn_20000116-20140616.nc"
-
-# Charger et afficher les métadonnées
 dataset = xr.open_dataset(file_path)
 print(dataset)
 
 
 
 
-
-# Tentative avec l'API mais échec
+#Ecriture des données issues de l'API CDS sur MinIO Client
 
 # Initialiser MiniO
 fs = s3fs.S3FileSystem(client_kwargs={"endpoint_url": "https://minio.lab.sspcloud.fr"})
 MY_BUCKET = "esam"
 print(fs.ls(MY_BUCKET))
-
 minio_path = f'{MY_BUCKET}/diffusion/cds_data/tos_Omon_MPI-ESM1-2-HR_historical_r1i1p1f1_gn_20000116-20140616.nc'
 
 
@@ -95,3 +86,36 @@ with fs.open(minio_path, "wb") as minio_file:  # Fichier cible sur MinIO
         minio_file.write(local_file.read())
 
 print(fs.ls(f"{MY_BUCKET}/diffusion/cds_data"))
+
+
+
+
+
+
+# Exploration des données
+fs = s3fs.S3FileSystem(client_kwargs={"endpoint_url": "https://minio.lab.sspcloud.fr"})
+MY_BUCKET = "esam"
+minio_path = f"{MY_BUCKET}/diffusion/cds_data/tos_Omon_MPI-ESM1-2-HR_historical_r1i1p1f1_gn_20000116-20140616.nc"
+
+local_file = "temp_file.nc"
+with fs.open(minio_path, "rb") as minio_file:
+    with open(local_file, "wb") as local_nc_file:
+        local_nc_file.write(minio_file.read())
+
+# Charger le fichier localement avec xarray
+dataset = xr.open_dataset(local_file, engine="netcdf4")
+print(dataset)
+
+df_cds = dataset.to_dataframe().reset_index()
+print(df_cds.head())
+
+df_cds_clean = df_cds.dropna(subset=["tos"])
+print(df_cds_clean.head())
+
+
+df_cds_clean.to_csv("sst_data_cds.csv", index=False)
+
+
+
+
+
