@@ -113,7 +113,7 @@ df_cds_clean = df_cds.dropna(subset=["tos"])
 print(df_cds_clean.head())
 
 
-df_cds_clean.to_csv("sst_data_cds.csv", index=False)
+df_cds_clean.to_csv("projet_python_2024_ENSAE/sst_data_cds.csv", index=False)
 
 
 
