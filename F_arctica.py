@@ -8,7 +8,7 @@ import contextily as ctx
 matplotlib.use('Agg')
 
 # Chemin vers le fichier .shp
-fichier_shp = "/home/onyxia/work/projet_python_2024_ENSAE/zones_ornithologiques"
+fichier_shp = "/Users/audrey/projet_python_2024_ENSAE/F_arctica"
 
 # Lecture du fichier shapefile
 gdf = gpd.read_file(fichier_shp)
@@ -71,5 +71,27 @@ ax.set_ylabel("Latitude")
 plt.grid()
 
 # Sauvegarder la carte dans un fichier PNG
-plt.savefig("/home/onyxia/work/projet_python_2024_ENSAE/carte_shapefile2_avec_fond.png")
+plt.savefig("/Users/audrey/projet_python_2024_ENSAE/F_arctica.png")
 print("Carte sauvegardée sous 'carte_shapefile2_avec_fond.png'")
+
+import geopandas as gpd
+
+# Charger le fichier shapefile
+fichier_shp = "/Users/audrey/projet_python_2024_ENSAE/F_arctica"
+gdf = gpd.read_file(fichier_shp)
+
+# Afficher les colonnes disponibles
+print("Colonnes disponibles dans le fichier :")
+print(gdf.columns)
+
+# Afficher un échantillon des données pour voir les valeurs
+print("\nExtrait des données :")
+print(gdf.head(10))
+
+# Vérifier si certaines colonnes contiennent des mots-clés pertinents
+keywords = ['nombre', 'count', 'fratercula', 'arctica', 'date', 'zone', 'area']
+print("\nColonnes contenant des mots-clés pertinents :")
+for col in gdf.columns:
+    for keyword in keywords:
+        if keyword.lower() in col.lower():
+            print(f"- {col}")
