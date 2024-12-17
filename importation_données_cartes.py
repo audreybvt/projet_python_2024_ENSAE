@@ -8,7 +8,7 @@ import contextily as ctx
 matplotlib.use('Agg')
 
 # Chemin vers le fichier .shp
-fichier_shp = "/home/onyxia/work/projet_python_2024_ENSAE/zones_ornithologiques"
+fichier_shp = "/home/onyxia/projet_python_2024_ENSAE/zones_ornithologiques"
 
 # Lecture du fichier shapefile
 gdf = gpd.read_file(fichier_shp)
@@ -71,5 +71,7 @@ ax.set_ylabel("Latitude")
 plt.grid()
 
 # Sauvegarder la carte dans un fichier PNG
-plt.savefig("/home/onyxia/work/projet_python_2024_ENSAE/carte_shapefile2_avec_fond.png")
-print("Carte sauvegardée sous 'carte_shapefile2_avec_fond.png'")
+plt.savefig("/home/onyxia/work/projet_python_2024_ENSAE/carte_shapefile2.png")
+print("Carte sauvegardée sous 'carte_shapefile2.png'")
+
+
