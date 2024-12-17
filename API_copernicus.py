@@ -3,8 +3,10 @@ import pandas as pd
 import s3fs
 import zipfile
 import xarray as xr
+import dotenv
 
-
+# API Token 
+#API_TOKEN=4a3c4e19-b15f-41a9-8374-adf4f8ee3fb3 ## A FAAAAIIIIRRREEEE
 
 #Code Eve API Climate Data Store Copernicus
 with open('/home/onyxia/.cdsapirc', 'w') as file:
@@ -150,6 +152,92 @@ print(extracted_files_cds_2)
 fs = s3fs.S3FileSystem(client_kwargs={"endpoint_url": "https://minio.lab.sspcloud.fr"})
 MY_BUCKET = "esam"
 print(fs.ls(MY_BUCKET))
+minio_path_3 = f'{MY_BUCKET}/diffusion/cds_data/tos_Omon_HadGEM3-GC31-LL_ssp585_r1i1p1f3_gn_20150116-20490616.nc'
+file_path_3 = "/home/onyxia/work/extracted_files/tos_Omon_HadGEM3-GC31-LL_ssp585_r1i1p1f3_gn_20150116-20490616.nc"
+
+
+with fs.open(minio_path_2, "wb") as minio_file:  # Fichier cible sur MinIO
+    with open(file_path_2, "rb") as local_file:  # Fichier source local
+        minio_file.write(local_file.read())
+
+print(fs.ls(f"{MY_BUCKET}/diffusion/cds_data"))
+
+
+
+# Exploration des données
+fs = s3fs.S3FileSystem(client_kwargs={"endpoint_url": "https://minio.lab.sspcloud.fr"})
+MY_BUCKET = "esam"
+minio_path_2 = f'{MY_BUCKET}/diffusion/cds_data/tos_Omon_HadGEM3-GC31-LL_ssp585_r1i1p1f3_gn_20150116-20490616.nc'
+local_file_2 = "temp_file_2.nc"
+
+with fs.open(minio_path_2, "rb") as minio_file:
+    with open(local_file_2, "wb") as local_nc_file:
+        local_nc_file.write(minio_file.read())
+
+# Charger le fichier localement avec xarray
+dataset_2 = xr.open_dataset(local_file_2, engine="netcdf4")
+print(dataset_2)
+
+df_cds_2 = dataset_2.to_dataframe().reset_index()
+print(df_cds_2.head())
+
+df_cds_clean_2 = df_cds_2.dropna(subset=["tos"])
+print(df_cds_clean_2.head())
+
+df_cds_clean_2.to_csv("projet_python_2024_ENSAE/sst_data_cds_SSP5.csv", index=False)
+
+
+
+
+
+
+#### Climate Data Storage Copernicus 2 ####
+# Model HadGEM3-GC31-LL (UK) - from 2015 to 2049 - SST - SSP5-8.5 (worst scenario)
+
+
+client = cdsapi.Client()
+dataset = "projections-cmip6"
+request = {
+    "temporal_resolution": "monthly",
+    "variable": "sea_surface_temperature",
+    "experiment": "ssp1_2_6",
+    "model": "hadgem3_gc31_ll",
+    "month": ["01", "06"],
+    "year": [
+        "2015", "2016", "2017",
+        "2018", "2019", "2020",
+        "2021", "2022", "2023",
+        "2024", "2025", "2026",
+        "2027", "2028", "2029",
+        "2030", "2031", "2032",
+        "2033", "2034", "2035",
+        "2036", "2037", "2038",
+        "2039", "2040", "2041",
+        "2042", "2043", "2044",
+        "2045", "2046", "2047",
+        "2048", "2049"
+    ],
+    "area": [68.5, -27, 61.5, -10],  # Zone : Nord, Ouest, Sud, Est
+}
+client.retrieve(dataset, request).download()
+
+local_zip_path_3 = "/home/onyxia/work/cds_output_3.zip"
+temp_dir = "./extracted_files" # Dossier temporaire pour extraire les fichiers
+with zipfile.ZipFile(local_zip_path_3, 'r') as zip_ref: # Ouvrez le fichier ZIP et extrayez son contenu
+    zip_ref.extractall(temp_dir)
+print(f"Fichiers extraits dans : {temp_dir}")
+
+# Charger la liste des fichiers extraits dans un DataFrame
+extracted_files_cds_3 = pd.DataFrame({"file_paths": zip_ref.namelist()})
+print("Fichiers extraits :")
+print(extracted_files_cds_3)
+
+
+
+# Initialiser MiniO
+fs = s3fs.S3FileSystem(client_kwargs={"endpoint_url": "https://minio.lab.sspcloud.fr"})
+MY_BUCKET = "esam"
+print(fs.ls(MY_BUCKET))
 minio_path_2 = f'{MY_BUCKET}/diffusion/cds_data/tos_Omon_HadGEM3-GC31-LL_ssp585_r1i1p1f3_gn_20150116-20490616.nc'
 file_path_2 = "/home/onyxia/work/extracted_files/tos_Omon_HadGEM3-GC31-LL_ssp585_r1i1p1f3_gn_20150116-20490616.nc"
 
@@ -183,4 +271,3 @@ df_cds_clean_2 = df_cds_2.dropna(subset=["tos"])
 print(df_cds_clean_2.head())
 
 df_cds_clean_2.to_csv("projet_python_2024_ENSAE/sst_data_cds_SSP5.csv", index=False)
-
