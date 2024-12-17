@@ -86,7 +86,7 @@ print(gdf.columns)
 
 # Afficher un échantillon des données pour voir les valeurs
 print("\nExtrait des données :")
-print(gdf.head(10))
+print(gdf)
 
 # Vérifier si certaines colonnes contiennent des mots-clés pertinents
 keywords = ['nombre', 'count', 'fratercula', 'arctica', 'date', 'zone', 'area']
@@ -95,3 +95,22 @@ for col in gdf.columns:
     for keyword in keywords:
         if keyword.lower() in col.lower():
             print(f"- {col}")
+
+import geopandas as gpd
+
+# Charger le fichier shapefile
+fichier_shp = "/Users/audrey/projet_python_2024_ENSAE/F_arctica"
+gdf = gpd.read_file(fichier_shp)
+
+# Afficher les premières lignes pour vérifier le contenu
+print("Premières lignes du fichier shapefile :")
+print(gdf.head())
+
+# Extraire uniquement les données attributaires (sans la géométrie)
+df_attributs = gdf.drop(columns='geometry')
+
+# Sauvegarder les données attributaires au format CSV
+fichier_csv = "/Users/audrey/projet_python_2024_ENSAE/F_arctica_attributs.csv"
+df_attributs.to_csv(fichier_csv, index=False)
+
+print(f"Les attributs ont été exportés avec succès dans le fichier : {fichier_csv}")
