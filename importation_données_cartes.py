@@ -72,6 +72,7 @@ plt.grid()
 
 # Sauvegarder la carte dans un fichier PNG
 plt.savefig("/home/onyxia/work/projet_python_2024_ENSAE/carte_shapefile2.png")
+plt.show()
 print("Carte sauvegardée sous 'carte_shapefile2.png'")
 
 
