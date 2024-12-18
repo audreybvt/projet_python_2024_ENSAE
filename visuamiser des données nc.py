@@ -12,23 +12,39 @@ print(data.variables)  # Liste des variables disponibles
 
 
 # Accéder à une variable spécifique
-print(data['sea_surface_temperature'])  # Remplacer par une variable réelle
+print(data['tos'])  # Remplacer par une variable réelle
 
 # Extraire les données d'une variable en tant que tableau NumPy
-variable_data = data['sea_surface_temperature'].values
+variable_data = data['tos'].values
 
 # Fermer le fichier pour libérer les ressources
 data.close()
 
 import matplotlib.pyplot as plt
+import xarray as xr
 
-# Exemple : Lire et visualiser la température de surface
-temperature = data['sea_surface_temperature']  # Remplacer 'tos' par le nom réel de la variable
+# Assuming 'ds' is your xarray Dataset and 'tos' is the variable
+# Extract the 'tos' data variable
+tos = data['tos']
 
-# Sélectionner une tranche temporelle spécifique (si pertinent)
-temperature_at_time = temperature.isel(time=0)  # Première étape temporelle
+# Select data for a specific grid point, e.g., i=0 and j=0
+tos_at_point = tos.sel(i=0, j=0, method='nearest')
 
-# Tracer la variable
-temperature_at_time.plot()
-plt.title("Température de surface des océans (temps=0)")
+
+# Plotting sea surface temperature through time
+plt.figure(figsize=(10, 6))
+tos_at_point.plot()
+plt.title('Sea Surface Temperature Over Time (Grid Point: i=0, j=0)')
+plt.xlabel('Time')
+plt.ylabel('Sea Surface Temperature (°C)')
+plt.xticks(rotation=45)
+plt.tight_layout()
+# Enregistrer le graphique dans un fichier (par exemple en PNG)
+plt.savefig('sea_surface_temperature_time_series.png', dpi=300)  # Choisissez le format (PNG, PDF, etc.)
+
 plt.show()
+
+
+
+
+
