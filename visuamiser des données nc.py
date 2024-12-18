@@ -20,6 +20,7 @@ variable_data = data['tos'].values
 # Fermer le fichier pour libérer les ressources
 data.close()
 
+import matplotlib
 import matplotlib.pyplot as plt
 import xarray as xr
 
@@ -40,7 +41,7 @@ plt.ylabel('Sea Surface Temperature (°C)')
 plt.xticks(rotation=45)
 plt.tight_layout()
 # Enregistrer le graphique dans un fichier (par exemple en PNG)
-plt.savefig('sea_surface_temperature_time_series.png', dpi=300)  # Choisissez le format (PNG, PDF, etc.)
+plt.savefig('/home/onyxia/projet_python_2024_ENSAE/output/sst_time_series.png', dpi=300)
 
 plt.show()
 
