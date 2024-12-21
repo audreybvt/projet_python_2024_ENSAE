@@ -41,7 +41,7 @@ data.close()
 
 
 # Chemin vers le fichier NetCDF
-file_path = "/home/onyxia/projet_python_2024_ENSAE/data/tos_Omon_HadGEM3-GC31-LL_ssp245_r1i1p1f3_gn_20150116-20491216.nc"
+file_path = "/home/onyxia/projet_python_2024_ENSAE/data/tos_Omon_HadGEM3-GC31-LL_ssp585_r1i1p1f3_gn_20150116-20491216.nc"
 
 # Charger le fichier NetCDF
 data = xr.open_dataset(file_path)
@@ -65,12 +65,12 @@ plt.xticks(rotation=45)
 plt.tight_layout()
 
 # Enregistrer le graphique
-plt.savefig('/home/onyxia/projet_python_2024_ENSAE/output/annual_sst_time_series_scenariossp245.png', dpi=300)
+plt.savefig('/home/onyxia/projet_python_2024_ENSAE/output/annual_sst_time_series_scenariossp585.png', dpi=300)
 
 plt.show()
 
 # Sauvegarde des données moyennées annuellement dans un nouveau fichier NetCDF
-output_path = "/home/onyxia/projet_python_2024_ENSAE/output/annual_mean_SST_scenariossp245.nc"
+output_path = "/home/onyxia/projet_python_2024_ENSAE/output/annual_mean_SST_scenariossp585.nc"
 tos_annual_mean.to_netcdf(output_path)
 
 print(f"Fichier NetCDF avec moyennes annuelles enregistré : {output_path}")
