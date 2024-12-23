@@ -1,9 +1,13 @@
 geopandas
 matplotlib
-shapely.geometry 
+shapely
 matplotlib
 contextily 
 copernicusmarine
 nc-time-axis
 xarray
 netCDF4
+xarray 
+pandas
+numpy
+scikit-learn
