@@ -97,11 +97,27 @@ r2 = r2_score(y_test, y_pred)
 print(f"Mean Squared Error: {mse:.2f}")
 print(f"R² Score: {r2:.2f}")
 
+'''
 # Visualiser les performances
 plt.scatter(y_test, y_pred)
 plt.title("Prédictions vs Observations (Random Forest)")
 plt.xlabel("Observations")
 plt.ylabel("Prédictions")
+'''
+# Créer des couleurs basées sur 'y_test' ou une autre variable, ici on utilise 'y_test' pour la couleur
+colors = np.log1p(y_test)  # Exemple de mise à l'échelle des couleurs avec log(y_test + 1))
+
+# Visualisation des prédictions
+scatter = plt.scatter(y_test, y_pred, c=colors, cmap='viridis', label='Taux de production', alpha=0.7)
+
+# Ajouter un titre et des étiquettes
+plt.title("Prédictions vs Observations (Random Forest)")
+plt.xlabel("Observations")
+plt.ylabel("Prédictions")
+
+# Ajouter la barre de couleur pour la légende
+cbar = plt.colorbar(scatter)  # Associe la barre de couleur à l'objet 'scatter'
+cbar.set_label('Valeur (log(y_test + 1))')
 
 plt.savefig('/home/onyxia/work/projet_python_2024_ENSAE/output/prediction_observation_rf.png', dpi=300)
 plt.show()
