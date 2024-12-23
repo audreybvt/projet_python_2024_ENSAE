@@ -17,8 +17,15 @@ temperature.reset_index(inplace=True)
 # Vérifier les valeurs dans la colonne 'time' avant conversion
 print("Valeurs avant conversion de 'time' dans temperature : ", temperature['time'].head())
 
-# Extraire l'année de la colonne 'time' (qui est de type datetime64)
-temperature['time'] = pd.to_datetime(temperature['time'], errors='coerce').dt.year
+# Convertir le 'time' cftime en chaîne de caractères
+temperature['time'] = temperature['time'].astype(str)
+
+# Convertir en datetime après la conversion en chaîne
+temperature['time'] = pd.to_datetime(temperature['time'])
+
+# Extraire l'année et la convertir en int64
+temperature['time'] = temperature['time'].dt.year.astype('int64')
+
 
 # Vérifier les valeurs après conversion
 print("Valeurs après conversion de 'time' dans temperature : ", temperature['time'].head())
@@ -46,44 +53,44 @@ print("Données après fusion :\n", merged_data.head())
 # Vérifier s'il y a des lignes manquantes
 print(f"Nombre de lignes manquantes après fusion : {merged_data.isnull().sum().sum()}")
 
-# Si merged_data est vide ou contient des valeurs manquantes, vous devrez peut-être examiner les raisons.
-if merged_data.empty:
-    print("La fusion des données n'a pas abouti. Vérifiez les formats de 'time' dans les deux jeux de données.")
-else:
+
     # Visualiser les données
-    plt.scatter(merged_data['tos'], merged_data['production_rate'])
-    plt.title("Température vs Taux de Production des Puffins")
-    plt.xlabel("Température (°C)")
-    plt.ylabel("Taux de Production")
-    plt.show()
+plt.scatter(merged_data['tos'], merged_data['production_rate'])
+plt.title("Température vs Taux de Production des Puffins")
+plt.xlabel("Température (°C)")
+plt.ylabel("Taux de Production")
+plt.show()
 
     # Préparer les données pour le modèle
-    X = merged_data[['tos']]  # Température
-    y = merged_data['production_rate']  # Taux de production
+X = merged_data[['tos']]  # Température
+y = merged_data['production_rate']  # Taux de production
+
+    # Vérifier les valeurs manquantes dans y
+print("Valeurs manquantes dans y :", y.isnull().sum())
 
     # Division en jeu d'entraînement et de test
-    if len(X) > 0:  # Vérifier si les données sont valides avant de diviser
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+if len(X) > 0:  # Vérifier si les données sont valides avant de diviser
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
         # Entraîner un modèle Random Forest
-        rf_model = RandomForestRegressor(n_estimators=100, random_state=42)
-        rf_model.fit(X_train, y_train)
+    rf_model = RandomForestRegressor(n_estimators=100, random_state=42)
+    rf_model.fit(X_train, y_train)
 
         # Prédictions sur le jeu de test
-        y_pred = rf_model.predict(X_test)
+    y_pred = rf_model.predict(X_test)
 
         # Évaluer la performance
-        mse = mean_squared_error(y_test, y_pred)
-        r2 = r2_score(y_test, y_pred)
-        print(f"Mean Squared Error: {mse:.2f}")
-        print(f"R² Score: {r2:.2f}")
+    mse = mean_squared_error(y_test, y_pred)
+    r2 = r2_score(y_test, y_pred)
+    print(f"Mean Squared Error: {mse:.2f}")
+    print(f"R² Score: {r2:.2f}")
 
         # Visualiser les performances
-        plt.scatter(y_test, y_pred)
-        plt.title("Prédictions vs Observations (Random Forest)")
-        plt.xlabel("Observations")
-        plt.ylabel("Prédictions")
-        plt.show()
+    plt.scatter(y_test, y_pred)
+    plt.title("Prédictions vs Observations (Random Forest)")
+    plt.xlabel("Observations")
+    plt.ylabel("Prédictions")
+    plt.show()
 '''
         # Scénarios de température
         future_scenarios = pd.DataFrame({
