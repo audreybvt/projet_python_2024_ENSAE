@@ -68,29 +68,44 @@ y = merged_data['production_rate']  # Taux de production
     # Vérifier les valeurs manquantes dans y
 print("Valeurs manquantes dans y :", y.isnull().sum())
 
-    # Division en jeu d'entraînement et de test
-if len(X) > 0:  # Vérifier si les données sont valides avant de diviser
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+# Supprimer les lignes où y est manquant, en supprimant aussi les lignes correspondantes dans X
+merged_data_clean = merged_data.dropna(subset=['production_rate', 'tos'])
 
-        # Entraîner un modèle Random Forest
-    rf_model = RandomForestRegressor(n_estimators=100, random_state=42)
-    rf_model.fit(X_train, y_train)
+# Vérifier qu'il n'y a plus de NaN dans y après le nettoyage
+X_clean = merged_data_clean[['tos']]
+y_clean = merged_data_clean['production_rate']
 
-        # Prédictions sur le jeu de test
-    y_pred = rf_model.predict(X_test)
+print("Valeurs manquantes après nettoyage dans y_clean :", y_clean.isnull().sum())
 
-        # Évaluer la performance
-    mse = mean_squared_error(y_test, y_pred)
-    r2 = r2_score(y_test, y_pred)
-    print(f"Mean Squared Error: {mse:.2f}")
-    print(f"R² Score: {r2:.2f}")
+# Division en jeu d'entraînement et de test
+X_train, X_test, y_train, y_test = train_test_split(X_clean, y_clean, test_size=0.2, random_state=42)
 
-        # Visualiser les performances
-    plt.scatter(y_test, y_pred)
-    plt.title("Prédictions vs Observations (Random Forest)")
-    plt.xlabel("Observations")
-    plt.ylabel("Prédictions")
-    plt.show()
+# Vérification qu'il n'y a plus de NaN après la division
+print("Valeurs manquantes après division dans y_train :", y_train.isnull().sum())
+print("Valeurs manquantes après division dans y_test :", y_test.isnull().sum())
+
+# Entraîner un modèle Random Forest
+rf_model = RandomForestRegressor(n_estimators=100, random_state=42)
+rf_model.fit(X_train, y_train)
+
+# Prédictions sur le jeu de test
+y_pred = rf_model.predict(X_test)
+
+# Évaluer la performance
+mse = mean_squared_error(y_test, y_pred)
+r2 = r2_score(y_test, y_pred)
+print(f"Mean Squared Error: {mse:.2f}")
+print(f"R² Score: {r2:.2f}")
+
+# Visualiser les performances
+plt.scatter(y_test, y_pred)
+plt.title("Prédictions vs Observations (Random Forest)")
+plt.xlabel("Observations")
+plt.ylabel("Prédictions")
+
+plt.savefig('/home/onyxia/work/projet_python_2024_ENSAE/output/prediction_observation_rf.png', dpi=300)
+plt.show()
+
 '''
         # Scénarios de température
         future_scenarios = pd.DataFrame({
