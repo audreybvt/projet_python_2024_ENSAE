@@ -70,10 +70,12 @@ ax.set_xlabel("Longitude")
 ax.set_ylabel("Latitude")
 plt.grid()
 
+
 # Sauvegarder la carte dans un fichier PNG
 plt.savefig("/Users/audrey/projet_python_2024_ENSAE/F_arctica.png")
 print("Carte sauvegardée sous 'carte_shapefile2_avec_fond.png'")
 
+'''
 import geopandas as gpd
 
 # Charger le fichier shapefile
@@ -114,3 +116,4 @@ fichier_csv = "/Users/audrey/projet_python_2024_ENSAE/F_arctica_attributs.csv"
 df_attributs.to_csv(fichier_csv, index=False)
 
 print(f"Les attributs ont été exportés avec succès dans le fichier : {fichier_csv}")
+'''
