@@ -144,6 +144,7 @@ plt.xlabel("Scénarios de Température")
 plt.savefig('/home/onyxia/work/projet_python_2024_ENSAE/output/predictions.png', dpi=300)
 plt.show()
 
+
 #################### Prévisions avec les prédictions de copernicus #################
 
 # Charger les données futures de température (ici, je suppose un fichier CSV ou NetCDF avec des prévisions)
@@ -246,3 +247,4 @@ plt.savefig('/home/onyxia/work/projet_python_2024_ENSAE/output/predictions_in_ti
 
 # Afficher la figure
 plt.show()
+
