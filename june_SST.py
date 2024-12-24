@@ -2,7 +2,7 @@ import xarray as xr
 import matplotlib.pyplot as plt
 
 # Chemin vers le fichier NetCDF
-file_path = "/home/onyxia/projet_python_2024_ENSAE/data/data_SST.nc"
+file_path = "data/data_SST.nc"
 
 # Charger le fichier NetCDF
 data = xr.open_dataset(file_path)
@@ -29,12 +29,12 @@ plt.xticks(rotation=45)
 plt.tight_layout()
 
 # Enregistrer le graphique
-plt.savefig('/home/onyxia/projet_python_2024_ENSAE/output/june_sst_time_series.png', dpi=300)
+plt.savefig('output/june_sst_time_series.png', dpi=300)
 
 plt.show()
 
 # Sauvegarde des données moyennes de juin dans un nouveau fichier NetCDF
-output_path = "/home/onyxia/projet_python_2024_ENSAE/output/june_mean_SST.nc"
+output_path = "output/june_mean_SST.nc"
 tos_june_mean.to_netcdf(output_path)
 
 print(f"Fichier NetCDF avec moyennes de juin enregistré : {output_path}")
@@ -44,7 +44,7 @@ data.close()
 
 
 # Répéter le processus pour le fichier du scénario SSP585
-file_path = "/home/onyxia/projet_python_2024_ENSAE/data/tos_Omon_HadGEM3-GC31-LL_ssp585_r1i1p1f3_gn_20150116-20491216.nc"
+file_path = "data/tos_Omon_HadGEM3-GC31-LL_ssp585_r1i1p1f3_gn_20150116-20491216.nc"
 
 # Charger le fichier NetCDF
 data = xr.open_dataset(file_path)
@@ -71,12 +71,12 @@ plt.xticks(rotation=45)
 plt.tight_layout()
 
 # Enregistrer le graphique
-plt.savefig('/home/onyxia/projet_python_2024_ENSAE/output/june_sst_time_series_scenariossp585.png', dpi=300)
+plt.savefig('output/june_sst_time_series_scenariossp585.png', dpi=300)
 
 plt.show()
 
 # Sauvegarde des données moyennes de juin dans un nouveau fichier NetCDF
-output_path = "/home/onyxia/projet_python_2024_ENSAE/output/june_mean_SST_scenariossp585.nc"
+output_path = "output/june_mean_SST_scenariossp585.nc"
 tos_june_mean.to_netcdf(output_path)
 
 print(f"Fichier NetCDF avec moyennes de juin enregistré : {output_path}")
