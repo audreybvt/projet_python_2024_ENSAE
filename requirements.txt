@@ -1,0 +1,8 @@
+cdsapi
+pandas
+s3fs
+zipfile
+xarray
+dotenv
+os
+
