@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Path to the NetCDF file
-file_path = "/home/onyxia/projet_python_2024_ENSAE/data/data_SST.nc"
+file_path = "/home/onyxia/work/projet_python_2024_ENSAE/data/data_SST.nc"
 
 # Load the NetCDF file
 data = xr.open_dataset(file_path)
@@ -33,12 +33,12 @@ plt.xticks(rotation=45)
 plt.tight_layout()
 
 # Save the plot
-plt.savefig('/home/onyxia/projet_python_2024_ENSAE/output/annual_breading_sst_time_series.png', dpi=300)
+plt.savefig('output/annual_breading_sst_time_series.png', dpi=300)
 
 plt.show()
 
 # Save the annual mean SST data into a new NetCDF file
-output_path = "/home/onyxia/projet_python_2024_ENSAE/output/annual_mean_breading_SST.nc"
+output_path = "output/annual_mean_breading_SST.nc"
 tos_annual_mean.to_netcdf(output_path)
 
 print(f"NetCDF file with annual mean SST saved: {output_path}")
