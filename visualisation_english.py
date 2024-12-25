@@ -182,3 +182,6 @@ plt.savefig("output/temperature_puffin_rate_over_years.png", dpi=300)
 
 # Display the plot
 plt.show()
+
+################ VISUALIZE PUFFIN AND TEMPERATURE BY BREEDING SEASON ###################
+
