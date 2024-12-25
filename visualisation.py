@@ -4,7 +4,7 @@ import xarray as xr
 ###################### VISUALISER LES DONNEES COPERNICUS ####################
 
 # Chemin vers le fichier NetCDF
-file_path = "/home/onyxia/projet_python_2024_ENSAE/data/data_SST.nc"
+file_path = "data/data_SST.nc"
 
 # Charger le fichier NetCDF
 data = xr.open_dataset(file_path)
@@ -44,7 +44,7 @@ plt.ylabel('Sea Surface Temperature (°C)')
 plt.xticks(rotation=45)
 plt.tight_layout()
 # Enregistrer le graphique dans un fichier (par exemple en PNG)
-plt.savefig('/home/onyxia/projet_python_2024_ENSAE/output/sst_time_series.png', dpi=300)
+plt.savefig('output/sst_time_series.png', dpi=300)
 
 plt.show()
 
@@ -100,7 +100,9 @@ plt.xticks(rotation=45)  # Rotation des étiquettes de l'axe des x
 plt.tight_layout()
 
 # Enregistrer le graphique
-plt.savefig('/home/onyxia/projet_python_2024_ENSAE/output/sst_scenarios_comparison.png', dpi=300)
+plt.savefig('output/sst_scenarios_comparison.png', dpi=300)
 
 # Afficher le graphique
 plt.show()
+
+
