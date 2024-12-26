@@ -8,4 +8,5 @@ contextily>=1.2.0
 folium>=0.12.0
 ipython>=7.20.0
 netCDF4>=1.5.8
-
+numpy
+scikit-learn
