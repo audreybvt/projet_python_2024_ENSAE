@@ -89,7 +89,7 @@ Here is the repository layout:
   # this folder is not supposed to be there before running the main notebook but we let it there in case there are any issues with connecting to the minio Client
 
 .gitignore                         # Files excluded from Git tracking  
-get_data.ipynb                     # Notebook for downloading data  
+get_data.ipynb                     # Notebook for downloading data SHOULD NOT BE RUN 
 main.ipynb                         # Main analysis script
 README.md                          # Project documentation  
 requirements.txt                   # Dependencies and required libraries  
