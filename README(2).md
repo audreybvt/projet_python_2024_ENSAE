@@ -158,7 +158,7 @@ Run `main.ipynb` to perform the analysis, train models, and visualize results.
 
 You don't need to open and execute `get_data.ipynb` to download and process the data as everything has been put on the sspcloud and is called in `main.ipynb`. However you can have a look at `get_data.ipynb` if you want to know how we got the data.
 
-### Step 4: View Results
+### Step 3: View Results
 
 Interactive maps and visualizations are stored in the `results/` folder and can be opened in a web browser.
 
