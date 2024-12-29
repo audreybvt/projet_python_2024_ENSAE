@@ -45,6 +45,50 @@ Given that puffins are classified as **vulnerable** (IUCN RedList), this project
 -   **Bird life DataZone :**
     Species distribution data request. (https://datazone.birdlife.org/species/requestdis)
 
+### 1. [**CMIP6 Climate Projections**](https://cds.climate.copernicus.eu/datasets/projections-cmip6?tab=overview)
+- **Type of Data**: Climate model projections and historical data.
+- **File Format**: NetCDF.
+- **Content**:
+  - The CMIP6 dataset provides global climate projections, including historical and predictive data.
+  - **Key Variable Used**: Sea Surface Temperature (TOS).
+  - The dataset includes projections for various climate scenarios (RCPs), models, and variables, focusing on SST trends.
+  - **Years Covered**: 
+    - Historical data: 1850 to present.
+    - Future projections: Up to 2049.
+  - This data helps to understand how sea surface temperature trends might affect marine ecosystems and coastal bird populations over time.
+
+### 2. [**Atlantic Puffin Chick Production Data**](https://onlinelibrary.wiley.com/doi/10.1111/gcb.15665)
+- **Type of Data**: Long-term biological data.
+- **File Format**: CSV (available via request or publication supplement).
+- **Content**:
+  - The dataset contains records of Atlantic Puffin chick production, sourced from the study "Centennial relationships between ocean temperature and Atlantic puffin production" (Hansen et al., 2021).
+  - It includes relationships between **ocean temperature** and **Atlantic Puffin chick production** over time.
+  - **Years Covered**: 
+    - Data spans from the **early 1900s** to the **present**.
+
+### 3. [**eBird Observations**](https://ebird.org/data/download)
+- **Type of Data**: Bird abundance and distribution observations.
+- **File Format**: CSV (available for download directly from the website).
+- **Content**:
+  - eBird provides a comprehensive database of bird sightings reported by birdwatchers and scientists globally.
+  - **Key Variables**: Bird species, abundance, location, and date of sightings.
+  - This data is essential for tracking bird species' distributions, migration patterns, and population trends in relation to environmental factors such as climate change.
+  - **Years Covered**: 
+    - Data available from **2002 to present**, with real-time updates.
+    - The dataset allows for historical analysis of bird population shifts over two decades.
+
+### 4. [**BirdLife DataZone**](https://datazone.birdlife.org/species/requestdis)
+- **Type of Data**: Species distribution data.
+- **File Format**: CSV, Excel (available via request).
+- **Content**:
+  - BirdLife International’s DataZone provides species distribution maps and detailed data on a wide range of bird species worldwide.
+  - **Key Variables**: Species name, geographic distribution, population size, and habitat.
+  - This dataset is useful for understanding the current global distribution of birds and the effects of climate change on species ranges.
+  - **Years Covered**:
+    - Data reflects **current species distribution** and **conservation status**.
+    - Timeframe: The dataset provides up-to-date information on species' habitats and populations.
+
+
 ------------------------------------------------------------------------
 
 ## Repository Structure <a name="repository-structure"></a>
