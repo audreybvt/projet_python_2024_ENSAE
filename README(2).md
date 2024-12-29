@@ -36,7 +36,7 @@ Given that puffins are classified as **vulnerable** (IUCN RedList), this project
 
 ## Data Used <a name="data-used"></a>
 
--   [**CMIP6 Climate Projections**](https://cds.climate.copernicus.eu/datasets/projections-cmip6?tab=overview)**:**
+-   **CMIP6 Climate Projections:**
     Includes historical and predictive sea surface temperature (SST) data.
 -   **Atlantic Puffin Chick Production Data:**
     Sourced from [Global Change Biology, Hansen et al. (2021)](https://onlinelibrary.wiley.com/doi/10.1111/gcb.15665).
