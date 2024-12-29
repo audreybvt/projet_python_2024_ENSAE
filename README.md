@@ -40,8 +40,6 @@ Given that puffins are classified as **vulnerable** (IUCN RedList), this project
     Includes historical and predictive sea surface temperature (SST) data.
 -   [**Atlantic Puffin Chick Production Data**](https://onlinelibrary.wiley.com/doi/10.1111/gcb.15665)
     Sourced from [Global Change Biology, Hansen et al. (2021)](https://onlinelibrary.wiley.com/doi/10.1111/gcb.15665).
--   [**eBird Observations**](https://ebird.org/data/download)
-    Bird abundance and distribution data.
 -   [**BirdLife DataZone**](https://datazone.birdlife.org/species/requestdis)
     Species distribution data request. 
 
@@ -66,18 +64,7 @@ Given that puffins are classified as **vulnerable** (IUCN RedList), this project
   - **Years Covered**: 
     - Data spans from the **early 1900s** to the **present**.
 
-### 3. [**eBird Observations**](https://ebird.org/data/download)
-- **Type of Data**: Bird abundance and distribution observations.
-- **File Format**: CSV (available for download directly from the website).
-- **Content**:
-  - eBird provides a comprehensive database of bird sightings reported by birdwatchers and scientists globally.
-  - **Key Variables**: Bird species, abundance, location, and date of sightings.
-  - This data is essential for tracking bird species' distributions, migration patterns, and population trends in relation to environmental factors such as climate change.
-  - **Years Covered**: 
-    - Data available from **2002 to present**, with real-time updates.
-    - The dataset allows for historical analysis of bird population shifts over two decades.
-
-### 4. [**BirdLife DataZone**](https://datazone.birdlife.org/species/requestdis)
+### 3. [**BirdLife DataZone**](https://datazone.birdlife.org/species/requestdis)
 - **Type of Data**: Species distribution data.
 - **File Format**: CSV, Excel (available via request).
 - **Content**:
