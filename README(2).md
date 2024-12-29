@@ -4,18 +4,18 @@
 
 ## Table of Contents
 
-1.  [Subject](#subject)\
-2.  [Motivations](#motivations)\
-3.  [Data Used](#data-used)\
-4.  [Repository Structure](#repository-structure)\
-5.  [Requirements and Installation](#requirements-and-installation)\
-6.  [Usage](#usage)\
-7.  [Results](#results)\
+1.  [Subject](#subject)
+2.  [Motivations](#motivations)
+3.  [Data Used](#data-used)
+4.  [Repository Structure](#repository-structure)
+5.  [Requirements and Installation](#requirements-and-installation)
+6.  [Usage](#usage)
+7.  [Results](#results)
 8.  [License](#license)
 
 ------------------------------------------------------------------------
 
-## Subject <a name="subject"></a> {#subject}
+## Subject <a name="subject"></a> 
 
 This project aims to **predict the evolution of the Atlantic puffin population in time and space** under various global warming scenarios, using CMIP6 climate projections and historical puffin production data.
 
@@ -23,7 +23,7 @@ This project aims to **predict the evolution of the Atlantic puffin population i
 
 ------------------------------------------------------------------------
 
-## Motivations <a name="motivations"></a> {#motivations}
+## Motivations <a name="motivations"></a>
 
 The Atlantic puffin (*Fratercula arctica*) is a small seabird from the North Atlantic Ocean that has faced significant challenges due to climate change. Rising **sea surface temperatures (SST)** affect food availability during breeding seasons, leading to population declines.
 
@@ -34,7 +34,7 @@ Given that puffins are classified as **vulnerable** (IUCN RedList), this project
 
 ------------------------------------------------------------------------
 
-## Data Used <a name="data-used"></a> {#data-used}
+## Data Used <a name="data-used"></a>
 
 -   [**CMIP6 Climate Projections**](https://cds.climate.copernicus.eu/datasets/projections-cmip6?tab=overview)**:**\
     Includes historical and predictive sea surface temperature (SST) data.\
@@ -45,7 +45,7 @@ Given that puffins are classified as **vulnerable** (IUCN RedList), this project
 
 ------------------------------------------------------------------------
 
-## Repository Structure <a name="repository-structure"></a> {#repository-structure}
+## Repository Structure <a name="repository-structure"></a>
 
 Here is the repository layout:
 
@@ -72,7 +72,7 @@ requirements.txt                   # Dependencies and required libraries
 
 ------------------------------------------------------------------------
 
-## Requirements and Installation <a name="requirements-and-installation"></a> {#requirements-and-installation}
+## Requirements and Installation <a name="requirements-and-installation"></a>
 
 ### Prerequisites:
 
@@ -86,17 +86,17 @@ pip install -r requirements.txt
 
 ### Required Python Packages:
 
--   `xarray`\
--   `numpy`\
--   `pandas`\
--   `matplotlib`\
--   `scipy`\
--   `netCDF4`\
+-   `xarray`
+-   `numpy`
+-   `pandas`
+-   `matplotlib`
+-   `scipy`
+-   `netCDF4`
 -   `folium`
 
 ------------------------------------------------------------------------
 
-## Usage <a name="usage"></a> {#usage}
+## Usage <a name="usage"></a>
 
 ### Step 1: Clone the Repository
 
@@ -105,13 +105,13 @@ git clone https://github.com/audreybvt/projet_python_2024_ENSAE.git
 cd projet_python_2024_ENSAE
 ```
 
-### Step 2: Run the Data Preparation Notebook
-
-Open and execute `get_data.ipynb` to download and process the data.
-
-### Step 3: Main Analysis
+### Step 2: Main Analysis
 
 Run `main.ipynb` to perform the analysis, train models, and visualize results.
+
+#### N.B.: Data preparation notebook
+
+You don't need to open and execute `get_data.ipynb` to download and process the data as everything has been put on the sspcloud and is called in `main.ipynb`. However you can have a look at `get_data.ipynb` if you want to know how we got the data.
 
 ### Step 4: View Results
 
@@ -119,7 +119,7 @@ Interactive maps and visualizations are stored in the `results/` folder and can 
 
 ------------------------------------------------------------------------
 
-## Results <a name="results"></a> {#results}
+## Results <a name="results"></a>
 
 Key outputs of the project include:\
 1. **Interactive Map of Puffin Distribution:**\
@@ -133,7 +133,7 @@ Graphical predictions of puffin populations under various climate scenarios.
 
 ------------------------------------------------------------------------
 
-## **7. License** <a name="license"></a> {#license}
+## **7. License** <a name="license"></a>
 
 This repository is licensed under the MIT License. You are free to use, modify, and distribute the code and data in this repository, provided proper credit is given to the authors.
 
