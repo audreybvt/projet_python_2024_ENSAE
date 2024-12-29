@@ -12,3 +12,5 @@ numpy
 scikit-learn
 nbformat>=4.2.0
 plotly
+cdsapi
+dotenv
