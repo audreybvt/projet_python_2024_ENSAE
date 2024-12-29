@@ -41,7 +41,9 @@ Given that puffins are classified as **vulnerable** (IUCN RedList), this project
 -   **Atlantic Puffin Chick Production Data:**
     Sourced from [Global Change Biology, Hansen et al. (2021)](https://onlinelibrary.wiley.com/doi/10.1111/gcb.15665).
 -   **eBird Observations:**
-    Bird abundance and distribution data.
+    Bird abundance and distribution data. (https://ebird.org/data/download)
+-   **Bird life DataZone :**
+    Species distribution data request. (https://datazone.birdlife.org/species/requestdis)
 
 ------------------------------------------------------------------------
 
