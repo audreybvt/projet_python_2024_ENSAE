@@ -13,4 +13,4 @@ scikit-learn
 nbformat>=4.2.0
 plotly
 cdsapi
-dotenv
+dotenv>=1.0.0
