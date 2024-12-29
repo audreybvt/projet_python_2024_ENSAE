@@ -84,16 +84,9 @@ Here is the repository layout:
 
 ```         
 📂 data  
- ├── cds_data_treated/         # Processed CMIP6 climate data  
- ├── local_cds_files/          # Raw CMIP6 climate data  
- ├── local_puffin_files/       # Historical puffin data  
- └── local_shapefile_files/    # GIS shapefiles for mapping  
-
+ # this folder is not supposed to be there before running the main notebook but we let it there in case there are any issues with connecting to the minio Client
 📂 results  
- ├── map_with_vestmann_layer.html      # Interactive map which located Vestmann Islands in Iceland
- ├── puffin_distribution_map.html     # Visualization of puffin distribution  
- ├── tos_comparison_scenarios.html    # Comparison of SST scenarios  
- └── tos_graphic_historical.html      # Historical SST trends  
+  # this folder is not supposed to be there before running the main notebook but we let it there in case there are any issues with connecting to the minio Client
 
 .gitignore                         # Files excluded from Git tracking  
 get_data.ipynb                     # Notebook for downloading data  
