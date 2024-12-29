@@ -27,20 +27,20 @@ This project aims to **predict the evolution of the Atlantic puffin population i
 
 The Atlantic puffin (*Fratercula arctica*) is a small seabird from the North Atlantic Ocean that has faced significant challenges due to climate change. Rising **sea surface temperatures (SST)** affect food availability during breeding seasons, leading to population declines.
 
-Given that puffins are classified as **vulnerable** (IUCN RedList), this project seeks to model their population trends based on historical data and predict their evolution under these CMIP6 scenarios:\
-- SSP 5.8-5 (most pessimistic)\
-- SSP 2.4-5 (intermediate)\
+Given that puffins are classified as **vulnerable** (IUCN RedList), this project seeks to model their population trends based on historical data and predict their evolution under these CMIP6 scenarios:
+- SSP 5.8-5 (most pessimistic)
+- SSP 2.4-5 (intermediate)
 - SSP 1.2-6 (most optimistic)
 
 ------------------------------------------------------------------------
 
 ## Data Used <a name="data-used"></a>
 
--   [**CMIP6 Climate Projections**](https://cds.climate.copernicus.eu/datasets/projections-cmip6?tab=overview)**:**\
-    Includes historical and predictive sea surface temperature (SST) data.\
--   **Atlantic Puffin Chick Production Data:**\
-    Sourced from [Global Change Biology, Hansen et al. (2021)](https://onlinelibrary.wiley.com/doi/10.1111/gcb.15665).\
--   **eBird Observations:**\
+-   [**CMIP6 Climate Projections**](https://cds.climate.copernicus.eu/datasets/projections-cmip6?tab=overview)**:**
+    Includes historical and predictive sea surface temperature (SST) data.
+-   **Atlantic Puffin Chick Production Data:**
+    Sourced from [Global Change Biology, Hansen et al. (2021)](https://onlinelibrary.wiley.com/doi/10.1111/gcb.15665).
+-   **eBird Observations:**
     Bird abundance and distribution data.
 
 ------------------------------------------------------------------------
@@ -57,15 +57,14 @@ Here is the repository layout:
  └── local_shapefile_files/    # GIS shapefiles for mapping  
 
 📂 results  
- ├── map_with_vestmann_layer.html      # Interactive map of puffin distributions  
+ ├── map_with_vestmann_layer.html      # Interactive map which located Vestmann Islands in Iceland
  ├── puffin_distribution_map.html     # Visualization of puffin distribution  
  ├── tos_comparison_scenarios.html    # Comparison of SST scenarios  
  └── tos_graphic_historical.html      # Historical SST trends  
 
 .gitignore                         # Files excluded from Git tracking  
-get_data.ipynb                     # Notebook for downloading and cleaning data  
-main.ipynb                         # Main analysis script  
-output.png                         # Example output visualization  
+get_data.ipynb                     # Notebook for downloading data  
+main.ipynb                         # Main analysis script
 README.md                          # Project documentation  
 requirements.txt                   # Dependencies and required libraries  
 ```
@@ -121,14 +120,14 @@ Interactive maps and visualizations are stored in the `results/` folder and can 
 
 ## Results <a name="results"></a>
 
-Key outputs of the project include:\
-1. **Interactive Map of Puffin Distribution:**\
-Viewable in `results/puffin_distribution_map.html`.\
-2. **Comparison of Climate Scenarios:**\
-`results/tos_comparison_scenarios.html` compares different climate trajectories.\
-3. **Historical Trends:**\
-`results/tos_graphic_historical.html` shows past trends in SST.\
-4. **Population Predictions:**\
+Key outputs of the project include:
+1. **Interactive Map of Puffin Distribution:**
+Viewable in `results/puffin_distribution_map.html`.
+2. **Comparison of Climate Scenarios:**
+`results/tos_comparison_scenarios.html` compares different climate trajectories.
+3. **Historical Trends:**
+`results/tos_graphic_historical.html` shows past trends in SST.
+4. **Population Predictions:**
 Graphical predictions of puffin populations under various climate scenarios.
 
 ------------------------------------------------------------------------
@@ -141,6 +140,6 @@ This repository is licensed under the MIT License. You are free to use, modify, 
 
 ## **References**
 
--   Hansen, E.S., et al. (2021). *Centennial relationships between ocean temperature and Atlantic puffin production reveal shifting decennial trends*. Global Change Biology. DOI: [10.1111/gcb.15665](https://doi.org/10.1111/gcb.15665).\
--   CMIP6 Climate Projections: [Copernicus Climate Data Store](https://cds.climate.copernicus.eu/datasets/projections-cmip6?tab=overview).\
+-   Hansen, E.S., et al. (2021). *Centennial relationships between ocean temperature and Atlantic puffin production reveal shifting decennial trends*. Global Change Biology. DOI: [10.1111/gcb.15665](https://doi.org/10.1111/gcb.15665).
+-   CMIP6 Climate Projections: [Copernicus Climate Data Store](https://cds.climate.copernicus.eu/datasets/projections-cmip6?tab=overview).
 -   eBird Data Portal: [eBird.org](https://ebird.org/data/download).
