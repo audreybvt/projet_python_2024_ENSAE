@@ -11,3 +11,4 @@ netCDF4>=1.5.8
 numpy
 scikit-learn
 nbformat>=4.2.0
+plotly

@@ -154,18 +154,14 @@ Interactive maps and visualizations are stored in the `results/` folder and can 
 ## Results <a name="results"></a>
 
 Key outputs of the project include:
-
-1. **Interactive Map of Puffin Distribution**  
-   Viewable in `results/puffin_distribution_map.html`.
-
-2. **Comparison of Climate Scenarios**  
-   `results/tos_comparison_scenarios.html` compares different climate scenarios (SSP126, SSP245, and SSP585) in terms of sea surface temperature.
-
-3. **Historical Trends**  
-   `results/tos_graphic_historical.html` visualizes past trends in sea surface temperature (SST).
-
-4. **Puffin Population Predictions**  
-   Various graphs, such as `results/Future_Temperature_and_Predicted_Production_for_SSP126.html`, show puffin production rate predictions under different future temperature scenarios.
+1. **Interactive Map of Puffin Distribution:**
+Viewable in `results/puffin_distribution_map.html`.
+2. **Comparison of Climate Scenarios:**
+`results/tos_comparison_scenarios.html` compares different climate trajectories.
+3. **Historical Trends:**
+`results/tos_graphic_historical.html` shows past trends in SST.
+4. **Population Predictions:**
+Graphical predictions of puffin populations under various climate scenarios.
 
 ------------------------------------------------------------------------
 
