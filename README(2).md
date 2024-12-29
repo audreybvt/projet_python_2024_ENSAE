@@ -36,14 +36,14 @@ Given that puffins are classified as **vulnerable** (IUCN RedList), this project
 
 ## Data Used <a name="data-used"></a>
 
--   **CMIP6 Climate Projections:**
+-   [**CMIP6 Climate Projections**](https://cds.climate.copernicus.eu/datasets/projections-cmip6?tab=overview)
     Includes historical and predictive sea surface temperature (SST) data.
--   **Atlantic Puffin Chick Production Data:**
+-   [**Atlantic Puffin Chick Production Data**](https://onlinelibrary.wiley.com/doi/10.1111/gcb.15665)
     Sourced from [Global Change Biology, Hansen et al. (2021)](https://onlinelibrary.wiley.com/doi/10.1111/gcb.15665).
--   **eBird Observations:**
-    Bird abundance and distribution data. (https://ebird.org/data/download)
--   **Bird life DataZone :**
-    Species distribution data request. (https://datazone.birdlife.org/species/requestdis)
+-   [**eBird Observations**](https://ebird.org/data/download)
+    Bird abundance and distribution data.
+-   [**BirdLife DataZone**](https://datazone.birdlife.org/species/requestdis)
+    Species distribution data request. 
 
 ### 1. [**CMIP6 Climate Projections**](https://cds.climate.copernicus.eu/datasets/projections-cmip6?tab=overview)
 - **Type of Data**: Climate model projections and historical data.
